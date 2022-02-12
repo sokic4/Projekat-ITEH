@@ -27,10 +27,6 @@ Flight::route('GET /tablice.json', function () {
         $niz[$i]["model"] = $red->model;
         $i++;
     }
-    //JSON_UNESCAPED_UNICODE parametar je uveden u PHP verziji 5.4
-    //Omogućava Unicode enkodiranje JSON fajla
-    //Bez ovog parametra, vrši se escape Unicode karaktera
-    //Na primer, slovo č će biti \u010
     $json_niz = json_encode($niz, JSON_UNESCAPED_UNICODE);
     echo indent($json_niz);
     return false;
@@ -42,10 +38,6 @@ Flight::route('GET /tablice/@id.json', function ($id) {
     $db = Flight::db();
     $db->selectTablice($id);
     $red = $db->getResult()->fetch_object();
-    //JSON_UNESCAPED_UNICODE parametar je uveden u PHP verziji 5.4
-    //Omogućava Unicode enkodiranje JSON fajla
-    //Bez ovog parametra, vrši se escape Unicode karaktera
-    //Na primer, slovo č će biti \u010
     $json_niz = json_encode($red, JSON_UNESCAPED_UNICODE);
     echo indent($json_niz);
     return false;
