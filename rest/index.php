@@ -9,9 +9,6 @@ Flight::route('/', function () {
     echo 'hello world!';
 });
 
-Flight::route("GET /test", function () {
-    $this->test();
-});
 // Vracanje svih reg tablica
 Flight::route('GET /tablice.json', function () {
     header("Content-Type: application/json; charset=utf-8");
